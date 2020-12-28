@@ -5,6 +5,8 @@
       <a-input
         placeholder="请输入任务"
         class="todo-input-value"
+        :value="inputValue"
+        @change="handleChangeInput"
       />
       <a-button type="primary">添加事项</a-button>
     </div>
@@ -35,7 +37,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   name: 'app',
@@ -46,9 +48,13 @@ export default {
     this.$store.dispatch('getList')
   },
   computed: {
-    ...mapState(['list'])
+    ...mapState(['list', 'inputValue'])
   },
   methods: {
+    handleChangeInput (e) {
+      this.setInputValue(e.target.value)
+    },
+    ...mapMutations(['setInputValue'])
   }
 }
 </script>

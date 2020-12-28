@@ -6,12 +6,16 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    list: []
+    list: [],
+    inputValue: 'init...'
   },
   mutations: {
     // 修改列表数据
     initList (state, list) {
       state.list = list
+    },
+    setInputValue (state, val) {
+      state.inputValue = val
     }
   },
   actions: {
