@@ -14,7 +14,11 @@
     <a-list bordered :dataSource="list" class="todo-list">
       <a-list-item slot="renderItem" slot-scope="item">
         <!-- 复选框 -->
-        <a-checkbox>{{ item.info }}</a-checkbox>
+        <a-checkbox
+          :checked="item.done"
+          @change="(e) => {
+            handleChangeStatus(e, item.id)
+          }">{{ item.info }}</a-checkbox>
         <!-- 删除链接 -->
         <a slot="actions" @click="delTodo(item.id)">删除</a>
       </a-list-item>
@@ -62,6 +66,14 @@ export default {
     },
     delTodo (id) {
       this.$store.commit('delTodo', id)
+    },
+    handleChangeStatus (e, id) {
+      console.log('===handleChangeStatus===', e.target.checked, id)
+      const payload = {
+        id,
+        status: e.target.checked
+      }
+      this.$store.commit('changeStatus', payload)
     },
     ...mapMutations(['setInputValue'])
   }

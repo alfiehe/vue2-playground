@@ -30,6 +30,13 @@ export default new Vuex.Store({
       state.list = state.list.filter(item => {
         return item.id !== id
       })
+    },
+    changeStatus (state, payload) {
+      console.log('===changeStatus===', state, payload)
+      const index = state.list.findIndex(e => e.id === payload.id)
+      if (index !== -1) {
+        state.list[index].done = payload.status
+      }
     }
   },
   actions: {
