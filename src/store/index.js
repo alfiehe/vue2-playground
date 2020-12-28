@@ -25,6 +25,11 @@ export default new Vuex.Store({
       }
       state.list.push(obj)
       state.inputValue = ''
+    },
+    delTodo (state, id) {
+      state.list = state.list.filter(item => {
+        return item.id !== id
+      })
     }
   },
   actions: {

@@ -16,7 +16,7 @@
         <!-- 复选框 -->
         <a-checkbox>{{ item.info }}</a-checkbox>
         <!-- 删除链接 -->
-        <a slot="actions">删除</a>
+        <a slot="actions" @click="delTodo(item.id)">删除</a>
       </a-list-item>
 
       <!-- footer区域 -->
@@ -59,6 +59,9 @@ export default {
         return this.$message.error('内容不能为空')
       }
       this.$store.commit('addTodo')
+    },
+    delTodo (id) {
+      this.$store.commit('delTodo', id)
     },
     ...mapMutations(['setInputValue'])
   }
