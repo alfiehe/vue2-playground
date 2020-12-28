@@ -8,7 +8,7 @@
         :value="inputValue"
         @change="handleChangeInput"
       />
-      <a-button type="primary">添加事项</a-button>
+      <a-button type="primary" @click="handleAddTodo">添加事项</a-button>
     </div>
 
     <a-list bordered :dataSource="list" class="todo-list">
@@ -53,6 +53,12 @@ export default {
   methods: {
     handleChangeInput (e) {
       this.setInputValue(e.target.value)
+    },
+    handleAddTodo () {
+      if (this.inputValue.trim().length <= 0) {
+        return this.$message.error('内容不能为空')
+      }
+      this.$store.commit('addTodo')
     },
     ...mapMutations(['setInputValue'])
   }

@@ -7,7 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     list: [],
-    inputValue: 'init...'
+    inputValue: ''
   },
   mutations: {
     // 修改列表数据
@@ -16,6 +16,15 @@ export default new Vuex.Store({
     },
     setInputValue (state, val) {
       state.inputValue = val
+    },
+    addTodo (state) {
+      const obj = {
+        id: state.list.length,
+        info: state.inputValue.trim(),
+        done: false
+      }
+      state.list.push(obj)
+      state.inputValue = ''
     }
   },
   actions: {
