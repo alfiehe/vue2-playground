@@ -2,13 +2,12 @@
   <div class="todo">
 
     <div class="todo-form">
-      <a-input
-        placeholder="请输入任务"
+      <el-input
+        placeholder="请输入内容"
         class="todo-input-value"
-        :value="inputValue"
-        @change="handleChangeInput"
-      />
-      <a-button type="primary" @click="handleAddTodo">添加事项</a-button>
+        v-model="inputValue"
+      ></el-input>
+      <el-button type="primary" @click="handleAddTodo">添加事项</el-button>
     </div>
 
     <a-list bordered :dataSource="list" class="todo-list">
@@ -46,22 +45,22 @@ import { mapState, mapMutations } from 'vuex'
 export default {
   name: 'app',
   data () {
-    return {}
+    return {
+      inputValue: ''
+    }
   },
   created () {
     this.$store.dispatch('getList')
   },
   computed: {
-    ...mapState(['list', 'inputValue'])
+    ...mapState(['list'])
   },
   methods: {
-    handleChangeInput (e) {
-      this.setInputValue(e.target.value)
-    },
     handleAddTodo () {
       if (this.inputValue.trim().length <= 0) {
         return this.$message.error('内容不能为空')
       }
+      this.$store.commit('setInputValue', this.inputValue)
       this.$store.commit('addTodo')
     },
     delTodo (id) {
@@ -76,6 +75,9 @@ export default {
       this.$store.commit('changeStatus', payload)
     },
     ...mapMutations(['setInputValue'])
+  },
+  mounted () {
+    console.log('===mounted===', this.inputValue)
   }
 }
 </script>
