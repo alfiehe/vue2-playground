@@ -40,17 +40,17 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations } from 'vuex';
 
 export default {
   name: 'app',
   data () {
     return {
       inputValue: ''
-    }
+    };
   },
   created () {
-    this.$store.dispatch('getList')
+    this.$store.dispatch('getList');
   },
   computed: {
     ...mapState(['list'])
@@ -58,28 +58,28 @@ export default {
   methods: {
     handleAddTodo () {
       if (this.inputValue.trim().length <= 0) {
-        return this.$message.error('内容不能为空')
+        return this.$message.error('内容不能为空');
       }
-      this.$store.commit('setInputValue', this.inputValue)
-      this.$store.commit('addTodo')
+      this.$store.commit('setInputValue', this.inputValue);
+      this.$store.commit('addTodo');
     },
     delTodo (id) {
-      this.$store.commit('delTodo', id)
+      this.$store.commit('delTodo', id);
     },
     handleChangeStatus (e, id) {
-      console.log('===handleChangeStatus===', e.target.checked, id)
+      console.log('===handleChangeStatus===', e.target.checked, id);
       const payload = {
         id,
         status: e.target.checked
-      }
-      this.$store.commit('changeStatus', payload)
+      };
+      this.$store.commit('changeStatus', payload);
     },
     ...mapMutations(['setInputValue'])
   },
   mounted () {
-    console.log('===mounted===', this.inputValue)
+    console.log('===mounted===', this.inputValue);
   }
-}
+};
 </script>
 
 <style scoped>
