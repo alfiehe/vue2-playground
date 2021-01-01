@@ -5,6 +5,8 @@ import App from './App';
 import router from './router';
 import store from './store';
 
+import Loading from './components/loading';
+
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
@@ -19,6 +21,7 @@ Vue.config.productionTip = false;
 Vue.use(ElementUI);
 Vue.use(Antd);
 Vue.use(require('vue-shortkey'));
+Vue.use(Loading);
 
 /* eslint-disable no-new */
 new Vue({
