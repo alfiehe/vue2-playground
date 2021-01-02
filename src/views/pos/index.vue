@@ -16,7 +16,7 @@
                 <el-table-column prop="count" label="量" width="50" />
                 <el-table-column prop="price" label="金额" width="70" />
                 <el-table-column label="操作" width="100" fixed="right">
-                  <template scope="scope">
+                  <template solt-scope="scope">
                     <el-button type="text" size="small" @click="delGood(scope.row)">删除</el-button>
                     <el-button type="text" size="small" @click="addGood(scope.row)">增加</el-button>
                   </template>
