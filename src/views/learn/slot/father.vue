@@ -20,7 +20,7 @@
       <h4>slot-scope</h4>
       <template slot="list" slot-scope="list">
         <ul>
-          <li v-for="item in list.data">{{item}}</li>
+          <li v-for="(item, index) in list.data" :key="index">{{item}}</li>
         </ul>
       </template>
     </Child>

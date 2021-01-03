@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import HelloWorld from '@/components/HelloWorld';
-import Todo from '@/components/todo';
+import Todo from '@/views/todo';
 import Pos from '@/views/pos';
 import shortkey from '@/views/shortkey';
 import learn from '@/views/learn';
@@ -10,10 +9,14 @@ Vue.use(Router);
 
 export default new Router({
   routes: [
+    { 
+      path: '/', 
+      redirect: '/learn'
+    },
     {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      path: '/learn',
+      name: 'learn',
+      component: learn
     },
     {
       path: '/todo',
@@ -30,10 +33,5 @@ export default new Router({
       name: 'shortkey',
       component: shortkey
     },
-    {
-      path: '/learn',
-      name: 'learn',
-      component: learn
-    }
   ]
 });

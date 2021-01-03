@@ -107,7 +107,7 @@
 </template>
 
 <script>
-import LeftNav from '../../components/pos/leftNav';
+import LeftNav from './leftNav';
 import axios from 'axios';
 
 /**

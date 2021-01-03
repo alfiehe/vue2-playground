@@ -2,6 +2,15 @@
   <div class="learn">
     <h1>Learn</h1>
     <section>
+      <h2>svg icon</h2>
+      <SvgIcon name="ad" />
+    <SvgIcon name="key" />
+    <SvgIcon name="ad" color="red" size="36" />
+    <SvgIcon name="key" color="green" size="36" />
+    <SvgIcon name="ad" width="60" height="60" />
+    <SvgIcon name="key" width="60" height="60" />
+    </section>
+    <section>
       <h2>Vue.use()</h2>
       <Loading></Loading>
     </section>
@@ -32,6 +41,7 @@
 import Vue from 'vue';
 import SlotFather from './slot/father';
 import Message from './message';
+import SvgIcon from '@/components/svgicon';
 
 // 全局注册指令
 Vue.directive('focus', {
@@ -62,6 +72,7 @@ export default {
   components: {
     SlotFather,
     Message,
+    SvgIcon
   },
   data () {
     return {
