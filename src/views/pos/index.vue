@@ -1,6 +1,5 @@
 <template>
   <div class="pos">
-    <div class="side"><LeftNav /></div>
     <div class="main">
       <el-row class="pos-row">
         <el-col :span="9" class="pos-order">
@@ -107,7 +106,6 @@
 </template>
 
 <script>
-import LeftNav from './leftNav';
 import axios from 'axios';
 
 /**
@@ -118,7 +116,6 @@ import axios from 'axios';
 export default {
   name: 'Pos',
   components: {
-    LeftNav
   },
   data () {
     return {
