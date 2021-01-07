@@ -5,7 +5,9 @@
         route.name
       }}</router-link>
     </nav>
-    <router-view />
+    <article>
+      <router-view />
+    </article>
   </div>
 </template>
 
@@ -68,5 +70,8 @@ nav > a {
   font-size: 16px;
   font-weight: bold;
   font-family: "Merienda", Helvetica, Arial;
+}
+article {
+  padding: 30px;
 }
 </style>

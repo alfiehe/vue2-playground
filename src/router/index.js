@@ -9,6 +9,7 @@ Vue.use(Router);
 
 // 动态加载页面，懒加载
 const Home = () => import('@/views/Home');
+const Best = () => import('@/views/Best');
 
 // Demo
 const Demo = () => import('@/views/Demo');
@@ -25,6 +26,11 @@ export default new Router({
       path: '/home',
       name: 'Home',
       component: Home
+    },
+    {
+      path: '/best',
+      name: '最佳实践',
+      component: Best
     },
     {
       path: '/demo',
