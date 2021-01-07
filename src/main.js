@@ -5,6 +5,8 @@ import App from './App';
 import router from './router';
 import store from './store';
 
+import UI from './ui';
+
 import Loading from './components/loading';
 
 import ElementUI from 'element-ui';
@@ -21,6 +23,7 @@ Vue.config.productionTip = false;
 Vue.use(ElementUI);
 Vue.use(Antd);
 Vue.use(require('vue-shortkey'));
+Vue.use(UI);
 Vue.use(Loading);
 
 /* eslint-disable no-new */

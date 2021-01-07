@@ -28,6 +28,11 @@ export default new Router({
       component: Home
     },
     {
+      path: '/ui',
+      name: 'UI',
+      component: () => import('@/views/UIDemo'),
+    },
+    {
       path: '/best',
       name: '最佳实践',
       component: Best
